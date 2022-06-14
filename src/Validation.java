@@ -22,7 +22,7 @@ public class Validation {
     }
     public void emailValidation(String email)
     {
-        String regex = "^[abc]{1}.*[A-Za-z0-9]*@{1}[A-Za-z0-9]{1,}.com{1}.*[a-z]*";
+        String regex = "^[abc]{1}(.*[A-Za-z0-9-_+.])?@{1}[A-Za-z0-9]{1,}.com{1}(.[a-z]*)?$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(email);
         check(m.find());
