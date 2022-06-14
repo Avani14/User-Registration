@@ -27,4 +27,11 @@ public class Validation {
         Matcher m = p.matcher(email);
         check(m.find());
     }
+    public void phoneNumberValidation(String phone)
+    {
+        String regex = "^(91|0)?+[7-9]{1}+[0-9]{9}$";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(phone);
+        check(m.find());
+    }
 }
