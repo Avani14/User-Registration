@@ -6,15 +6,17 @@ public class Main {
         System.out.println("Hello world!");
         Validation v = new Validation();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter first name");
+        System.out.println("Please enter first name: ");
         String f_name = sc.next();
         v.nameValidation(f_name);
-        System.out.println("Please enter last name");
+        System.out.println("Please enter last name: ");
         String l_name = sc.next();
         v.nameValidation(l_name);
-        System.out.println("Please enter your Email-ID");
+        System.out.println("Please enter your Email-ID: ");
         String email = sc.next();
         v.emailValidation(email);
-
+        System.out.println("Please enter your 10 digit phone number: ");
+        String phone = sc.next();
+        v.phoneNumberValidation(phone);
     }
 }
