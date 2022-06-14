@@ -22,7 +22,7 @@ public class Validation {
     }
     public void emailValidation(String email)
     {
-        String regex = "^[abc]{1}.*[A-Za-z0-9]*@{1}[A-Za-z0-9]{1,}.com{1}.*[a-z]*";
+        String regex = "^[abc]{1}(.*[A-Za-z0-9-_+.])?@{1}[A-Za-z0-9]{1,}.com{1}(.[a-z]*)?$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(email);
         check(m.find());
@@ -36,8 +36,8 @@ public class Validation {
     }
     public void passwordValidation(String password)
     {
-        //This is for rule 3 ie minimum 8 characters and at-least one upper case for the password at-least one numeric value
-        String regex = "^(?=.[a-z!@#&()–[{}]:;',?/*~$^+=<>])(?=.*[0-9])(?=.*[A-Z]).{8,}";
+        //This is for rule 4
+        String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.{1}?[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(password);
         check(m.find());
