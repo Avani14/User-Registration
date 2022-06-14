@@ -36,7 +36,7 @@ public class Validation {
     }
     public void passwordValidation(String password)
     {
-        //This is for rule 2 ie minimum 8 characters and at-least one upper case for the password
+        //This is for rule 3 ie minimum 8 characters and at-least one upper case for the password at-least one numeric value
         String regex = "^(?=.[a-z!@#&()–[{}]:;',?/*~$^+=<>])(?=.*[0-9])(?=.*[A-Z]).{8,}";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(password);
