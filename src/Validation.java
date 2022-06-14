@@ -34,4 +34,12 @@ public class Validation {
         Matcher m = p.matcher(phone);
         check(m.find());
     }
+    public void passwordValidation(String password)
+    {
+        //This is for rule 1 ie minimum 8 characters for the password
+        String regex = "[A-Za-z0-9!@#&()–[{}]:;',?/*~$^+=<>]{8,}";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(password);
+        check(m.find());
+    }
 }
