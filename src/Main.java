@@ -12,6 +12,9 @@ public class Main {
         System.out.println("Please enter last name");
         String l_name = sc.next();
         v.nameValidation(l_name);
+        System.out.println("Please enter your Email-ID");
+        String email = sc.next();
+        v.emailValidation(email);
 
     }
 }
