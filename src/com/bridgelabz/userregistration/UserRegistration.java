@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class UserRegistration {
     public static void main(String[] args) {
 
-        System.out.println("Welcome to User Registration!");
+        System.out.println("---Welcome to User Registration---");
         Validation v = new Validation();
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter first name: ");
