@@ -16,37 +16,41 @@ public class Validation {
         }
     }
     //Name validation which works for first and last name
-    public void nameValidation(String name)
+    public boolean nameValidation(String name)
     {
         String regex ="^[A-Z]{1}+[a-z]{2,}$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(name);
         check(m.find());
+        return m.matches();
     }
     //Email validation
-    public void emailValidation(String email)
+    public boolean emailValidation(String email)
     {
-        String regex = "^[abc]{1}(.*[A-Za-z0-9-_+.])?@{1}[A-Za-z0-9]{1,}.com{1}(.[a-z]*)?$";
+        String regex = "^[a-zA-Z]+[a-zA-Z0-9]*[- . + _]?[a-zA-Z0-9]+[@]{1}[a-z0-9]+[.]{1}[a-z]+[.]?[a-z]+$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(email);
         check(m.find());
+        return m.matches();
     }
     //Phone number validation
-    public void phoneNumberValidation(String phone)
+    public boolean phoneNumberValidation(String phone)
     {
 
         String regex = "^(91|0)?+[7-9]{1}+[0-9]{9}$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(phone);
         check(m.find());
+        return m.matches();
     }
     //Password validation
-    public void passwordValidation(String password)
+    public boolean passwordValidation(String password)
     {
         //This is for rule 4
-        String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.{1}?[@#$%^&-+=()])(?=.*[a-zA-Z0-9]*).{8,}$";
+        String regex = "[A-Z]{1,}[a-z0-9!@#&()–[{}]:;',?/*~$^+=<>]{7,}";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(password);
         check(m.find());
+        return m.matches();
     }
 }
