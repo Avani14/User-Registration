@@ -1,8 +1,10 @@
-package com.bridgelabz.userregistration;
+package com.bridgelabz.userregistrationtest;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.bridgelabz.userregistration.Validation;
 
 
 public class ValidationTest {
