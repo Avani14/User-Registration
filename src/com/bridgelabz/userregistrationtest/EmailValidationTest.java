@@ -1,6 +1,7 @@
 package com.bridgelabz.userregistrationtest;
 
 import com.bridgelabz.userregistration.Validation;
+import com.bridgelabz.userregistration.ValidationException;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
@@ -48,9 +49,13 @@ public class EmailValidationTest {
         });
     }
     @Test
-    public void emailValidation() {
-        Validation v= new Validation();
-        boolean ans = v.emailValidation(this.email);
-        Assertions.assertEquals(this.expectedResult,ans);
+    public void emailValidation() throws ValidationException {
+        try {
+            Validation v = new Validation();
+            v.emailValidation(this.email);
+        }
+        catch (ValidationException v) {
+                Assertions.assertEquals(ValidationException.ExceptionType.INVALID_EMAIL, v.type);
+        }
     }
 }

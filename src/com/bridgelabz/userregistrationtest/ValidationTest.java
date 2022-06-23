@@ -1,10 +1,12 @@
 package com.bridgelabz.userregistrationtest;
 
+import com.bridgelabz.userregistration.ValidationException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.bridgelabz.userregistration.Validation;
+import org.junit.jupiter.api.Assertions;
 
 
 public class ValidationTest {
@@ -18,66 +20,52 @@ public class ValidationTest {
 	public void setUp()
 	{
 		v = new Validation();
-		f_name = "Avani";
-		l_name = "Trivedi";
-		number = "9516044147";
-		password= "Avani@1234";
-		email= "abc100@gmail.com";
+		f_name = "avani";
+		l_name = "trivedi";
+		number = "95160147";
+		password= "avan";
+		email= "abc100@gmail";
 	}
 	//For the first name and last name
 	@Test
-	public void nameValidation()
+	public void nameValidation() throws ValidationException
 	{
-		//Happy case for first name
-		boolean ans1 = v.nameValidation(f_name);
-		Assert.assertEquals(true, ans1);
-		//Sad case for first Name
-		f_name = "Av";
-		boolean ans2 = v.nameValidation(f_name);
-		Assert.assertEquals(false, ans2);
-		//Happy case for last name
-		l_name = "Trivedi";
-		boolean ans3 = v.nameValidation(l_name);
-		Assert.assertEquals(true, ans3);
-		//Sad case for last name
-		l_name = "Tr";
-		boolean ans4 = v.nameValidation(l_name);
-		Assert.assertEquals(false, ans4);
+		try{
+			v.nameValidation(f_name);
+			v.nameValidation(l_name);
+		}
+		catch (ValidationException e)
+		{
+			Assertions.assertEquals(ValidationException.ExceptionType.INVALID_NAME, e.type);
+		}
+
 	}
 	
 	@Test
-	public void emailValidation()
-	{
-		//Happy case for email validation
-		boolean ans1 = v.emailValidation(email);
-		Assert.assertEquals(true,ans1);
-		//Sad case for email validation
-		email = "abc()*@gmail.com";
-		boolean ans2 = v.emailValidation(email);
-		Assert.assertEquals(false, ans2);
-		
+	public void emailValidation() throws ValidationException {
+		try {
+			v.emailValidation(email);
+		}
+		catch (ValidationException e)
+		{
+			Assert.assertEquals(ValidationException.ExceptionType.INVALID_EMAIL, e.type);
+		}
 		}
 	@Test
-	public void phoneNumberValidation()
-	{
-		//Happy case for phone number validation
-		boolean ans = v.phoneNumberValidation(number);
-		Assert.assertEquals(true, ans);
-		//Sad case for phone number validation
-		number = "123";
-		boolean ans1 = v.phoneNumberValidation(number);
-		Assert.assertEquals(false, ans1);
-		
+	public void phoneNumberValidation() throws ValidationException {
+		try {
+			v.phoneNumberValidation(number);
+		} catch (ValidationException e) {
+			Assert.assertEquals(ValidationException.ExceptionType.INVALID_PHONE_NUMBER, e.type);
+		}
 	}
 	@Test
-	public void passwordValidation()
-	{
-		//Happy case for password validation
-		boolean ans1 = v.passwordValidation(password);
-		Assert.assertEquals(true, ans1);
-		//Sad case for password validation
-		password = "Avani";
-		boolean ans2 = v.passwordValidation(password);
-		Assert.assertEquals(false, ans2);
+	public void passwordValidation() throws ValidationException {
+		try {
+			v.passwordValidation(password);
+		}
+		catch (ValidationException e) {
+			Assert.assertEquals(ValidationException.ExceptionType.INVALID_PASSWORD, e.type);
+		}
 	}
 }
