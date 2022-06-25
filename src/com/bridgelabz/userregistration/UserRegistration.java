@@ -18,6 +18,7 @@ public class UserRegistration {
             System.out.println(e.getMessage());
             System.out.println("Please enter first name: ");
             f_name = sc.next();
+            v.nameValidation(f_name);
         }
         System.out.println("Please enter last name: ");
         String l_name = sc.next();
@@ -29,6 +30,7 @@ public class UserRegistration {
             System.out.println(e.getMessage());
             System.out.println("Please enter last name: ");
             l_name = sc.next();
+            v.nameValidation(l_name);
         }
         System.out.println("Please enter your 10 digit phone number: ");
         String phone = sc.next();
@@ -40,6 +42,7 @@ public class UserRegistration {
             System.out.println(e.getMessage());
             System.out.println("Please enter your 10 digit phone number: ");
             phone = sc.next();
+            v.phoneNumberValidation(phone);
         }
         System.out.println("Please enter your password(it should be of minimum length 8): ");
         String password = sc.next();
@@ -51,6 +54,7 @@ public class UserRegistration {
             System.out.println(e.getMessage());
             System.out.println("Please enter your password(it should be of minimum length 8): ");
             password = sc.next();
+            v.passwordValidation(password);
         }
         System.out.println("Thank You!!");
     }
