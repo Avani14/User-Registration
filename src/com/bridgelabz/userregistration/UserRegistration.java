@@ -52,5 +52,6 @@ public class UserRegistration {
             System.out.println("Please enter your password(it should be of minimum length 8): ");
             password = sc.next();
         }
+        System.out.println("Thank You!!");
     }
 }
